@@ -1,0 +1,8 @@
+%dir /usr/lib/debug
+%dir /usr/lib/debug/.build-id
+%dir /usr/lib/debug/.build-id/a5
+%dir /usr/lib/debug/usr
+%dir /usr/lib/debug/usr/bin
+/usr/lib/debug/.build-id/a5/8a64d9a6f024cd733c12ab841cc4492a87851b.debug
+/usr/lib/debug/.build-id/a5/8a64d9a6f024cd733c12ab841cc4492a87851b
+/usr/lib/debug/usr/bin/Ohm.debug
