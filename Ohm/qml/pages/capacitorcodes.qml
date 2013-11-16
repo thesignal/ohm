@@ -38,6 +38,7 @@ Page {
 
             TextField {
                 width: parent.width
+                focus: true
                 inputMethodHints: Qt.ImhFormattedNumbersOnly
                 label: "Capacitor Code"
                 placeholderText: "Type Code here"

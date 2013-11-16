@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-//import "js/resistorcolor.js" as ResistorColor
 
 Page {
     id: page
@@ -16,14 +15,14 @@ Page {
             property real dotspace: Theme.itemSizeSmall / 2.2
             property bool defaultdimm: false
             property double calcohm: 0
-            property real rings: 4 /* default value for resistor rings */
-            property string ohmvalue : " Ω"
+            property real rings: 4
+            property string ohmvalue : " H"
             anchors {
                 topMargin: Theme.paddingSmall
             }
 
             PageHeader {
-                title: "Resistor Colorcode"
+                title: "Inductor Colorcode"
             }
 
             function resolvId(nr) {
@@ -54,24 +53,22 @@ Page {
             function setpositions() {
                 var startpsX = 0;
                 var startpsY = 0;
-                var shiftX = 6.4;
-                var ringwidth = 7.6;
+                var shiftX = 4.9;
+                var ringwidth = 6.2;
                 if (column.rings === 3) {
-                    startpsX = 45;
-                    startpsY = 21;
+                    startpsX = 36.4;
+                    startpsY = 27.5;
                 }
                 if (column.rings === 4) {
-                    startpsX = 38.4;
-                    startpsY = 21;
+                    startpsX = 31;
+                    startpsY = 29;
                 }
                 if (column.rings === 5) {
-                    startpsX = 31;
-                    startpsY = 21;
+                    startpsX = 24.6;
+                    startpsY = 29;
 
                 }
                 if (column.rings === 6) {
-                    startpsX = 24.2;
-                    startpsY = 21;
 
                 }
                 for (var i = 0; i < column.rings; i++) {
@@ -91,19 +88,8 @@ Page {
                     bottomMargin: Theme.paddingSmall / 4
                 }
                 fillMode: Image.PreserveAspectFit
-                source: {
-                    if (column.rings === 3) {
-                        return "../img/resistor_big_3rings.png"
-                    } else if (column.rings === 4) {
-                        return "../img/resistor_big_4rings.png"
-                    } else if (column.rings === 5) {
-                        return "../img/resistor_big_5rings.png"
-                    } else if (column.rings === 6) {
-                        return "../img/resistor_big_6rings.png"
-                    }
-                }
-
-                width: 125
+                source: "../img/resistor_4rings.png"
+                width: 100
                 height: 100
                 z : 1
                 Repeater {
@@ -111,8 +97,8 @@ Page {
                     model : column.rings
                     Rectangle {
                         color : "transparent"
-                        width : 7.9
-                        height : 57.1
+                        width : 5.7
+                        height : 44.5
                         z : 100
                     }
                 }
@@ -122,7 +108,7 @@ Page {
             // insert graphic here
             Label {
                 id : ohmlabel
-                text : " Ω"
+                text : " H"
                 font.pixelSize: Theme.fontSizeMedium
                 anchors {
                     horizontalCenter: parent.horizontalCenter
@@ -479,7 +465,7 @@ Page {
                 Repeater { /* repeater black GlassItem */
                     id : rep00
                     model : column.rings
-                    onModelChanged: column.updateRow1(rep00)
+                    //onModelChanged: column.updateRow1(rep00)
                     GlassItem { /* black GlassItem */
                         color : "#000000"
                         cache: false
@@ -490,7 +476,7 @@ Page {
                             onClicked: column.clickhandler(color,index,rep00)
                         }
                     }
-                    Component.onCompleted: column.updateRow1(rep00)
+//                    Component.onCompleted: column.updateRow1(rep00)
                 }
             }
 
@@ -539,8 +525,8 @@ Page {
                 Repeater { /* repeater orange */
                     id : rep30
                     model : column.rings
-                    onModelChanged: column.updateRow4_5(rep30)
-                    Component.onCompleted: column.updateRow4_5(rep30)
+                    //onModelChanged: column.updateRow4_5(rep30)
+                    //Component.onCompleted: column.updateRow4_5(rep30)
 
                     GlassItem {
                         color : "#ff9900" /* orange*/
@@ -561,8 +547,8 @@ Page {
                 Repeater { /* repeater, yellow */
                     id : rep40
                     model : (column.rings)
-                    onModelChanged: column.updateRow4_5(rep40)
-                    Component.onCompleted: column.updateRow4_5(rep40)
+                    //onModelChanged: column.updateRow4_5(rep40)
+                    //Component.onCompleted: column.updateRow4_5(rep40)
                     GlassItem {
                         color : "#ffff00"
                         cache: false
@@ -737,24 +723,7 @@ Page {
 //                    horizontalCenter: parent.horizontalCenter
 //                }
 //            }
-            PushUpMenu {
-                MenuItem {
-                    text: "Use 3 Rings"
-                    onClicked: column.rings = 3;
-                }
-                MenuItem {
-                    text: "Use 4 Rings"
-                    onClicked: column.rings = 4;
-                }
-                MenuItem {
-                    text: "Use 5 Rings"
-                    onClicked: column.rings = 5;
-                }
-                MenuItem {
-                    text: "Use 6 Rings"
-                    onClicked: column.rings = 6;
-                }
-            }
+
         }
     }
 

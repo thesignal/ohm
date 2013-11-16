@@ -13,7 +13,7 @@ ApplicationWindow {
                     page: "resistorcolor.qml"
                     title: "Resistor Colorcode"
                     section: "Codes"
-                    icon: "../img/resistor.png"
+                    icon: "../img/resistor_big_4rings.png"
                 }
                 ListElement {
                     page: "smdresistorcalc.qml"
@@ -22,10 +22,10 @@ ApplicationWindow {
                     icon: "../img/smdresistor.png"
                 }
                 ListElement {
-                    page: "resistorcolor.qml"
+                    page: "induction.qml"
                     title: "Inductor Colorcodes"
                     section: "Codes"
-                    icon: "../img/induct.png"
+                    icon: "../img/spiral.png"
                 }
                 ListElement {
                     page: "capacitorcodes.qml"
@@ -33,12 +33,12 @@ ApplicationWindow {
                     section: "Codes"
                     icon: "../img/capacitor.png"
                 }
-                ListElement {
-                    page: "resistorcolor.qml"
-                    title: "Ohms Law"
-                    section: "Equations"
-                    icon: "ress/resistor.png"
-                }
+//                ListElement {
+//                    page: "resistorcolor.qml"
+//                    title: "Ohms Law"
+//                    section: "Equations"
+//                    icon: "ress/resistor.png"
+//                }
                 ListElement {
                     page: "resistorcolor.qml"
                     title: "USB"
@@ -46,10 +46,10 @@ ApplicationWindow {
                     icon: "ress/resistor.png"
                 }
                 ListElement {
-                    page: "resistorcolor.qml"
+                    page: "vga_pins.qml"
                     title: "VGA"
                     section: "Connector Pin Assignments"
-                    icon: "ress/resistor.png"
+                    icon: "../img/vga_icon.png"
                 }
                 ListElement {
                     page: "resistorcolor.qml"
