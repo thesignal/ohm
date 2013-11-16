@@ -1,0 +1,5 @@
+*.pro
+*.o
+*.out
+*.rpm
+*.auto*
