@@ -40,10 +40,10 @@ ApplicationWindow {
 //                    icon: "ress/resistor.png"
 //                }
                 ListElement {
-                    page: "resistorcolor.qml"
+                    page: "usb_pins.qml"
                     title: "USB"
                     section: "Connector Pin Assignments"
-                    icon: "ress/resistor.png"
+                    icon: "../img/usb_norm.png"
                 }
                 ListElement {
                     page: "vga_pins.qml"
@@ -52,10 +52,10 @@ ApplicationWindow {
                     icon: "../img/vga_icon.png"
                 }
                 ListElement {
-                    page: "resistorcolor.qml"
-                    title: "Serial Connector"
+                    page: "serial_pins.qml"
+                    title: "RS232"
                     section: "Connector Pin Assignments"
-                    icon: "ress/resistor.png"
+                    icon: "../img/serial.png"
                 }
 
             }

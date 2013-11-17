@@ -8,93 +8,27 @@ Page {
 
         ListElement {
             pin : "PIN 1"
-            col : "RED"
-            title: "Red video"
-            description : "Red video"
+            col : ""
+            title: "Ground"
+            description : "Ground"
         }
         ListElement {
             pin : "PIN 2"
-            col : "GREEN"
-            title: "Green video"
-            description: "Green video"
+            col : ""
+            title: "Data+"
+            description: "Data+"
         }
         ListElement {
             pin : "PIN 3"
-            col : "BLUE"
-            title: "Blue video"
-            description: "Blue video"
+            col : ""
+            title: "Data−"
+            description: "Data−"
         }
         ListElement {
             pin : "PIN 4"
-            col : "ID2/RES"
-            title: "ID bit 2"
-            description : "ID bit 2, reserved"
-        }
-        ListElement {
-            pin : "PIN 5"
-            col : "GND"
-            title: "Ground, Hsync"
-            description : "Ground, Hsync"
-        }
-        ListElement {
-            pin : "PIN 6"
-            col : "RED_RTN"
-            title: "Red return"
-            description : "Red return"
-        }
-        ListElement {
-            pin : "PIN 7"
-            col : "GREEN_RTN"
-            title: "Green return"
-            description: "Green return"
-        }
-        ListElement {
-            pin : "PIN 8"
-            col : "BLUE_RTN"
-            title: "Blue return"
-            description: "Blue return"
-        }
-        ListElement {
-            pin : "PIN 9"
-            col : "KEY/PWR"
-            title: "Key / +5V"
-            description: "formerly Key, now +5V"
-        }
-        ListElement {
-            pin : "PIN 10"
-            col : "GND"
-            title: "Ground, Vsync DDC"
-            description: "Ground, Vsync DDC"
-        }
-        ListElement {
-            pin : "PIN 11"
-            col : "ID0/RES"
-            title: "Monitor ID bit 0"
-            description : "formerly Monitor ID bit 0, reserved since E-DDC"
-        }
-        ListElement {
-            pin : "PIN 12"
-            col : "ID1/SDA"
-            title: "Monitor ID bit 1"
-            description: "formerly Monitor ID bit 1, I²C since DDC2"
-        }
-        ListElement {
-            pin : "PIN 13"
-            col : "HSYNC"
-            title: "Horizontal sync"
-            description: "Horizontal sync"
-        }
-        ListElement {
-            pin : "PIN 14"
-            col : "VSYNC"
-            title: "Vertical sync"
-            description: "Vertical sync"
-        }
-        ListElement {
-            pin : "PIN 15"
-            col : "ID3/SCL"
-            title : "ID bit 3, I²C"
-            description : "formerly Monitor ID bit 3, I²C clock since DDC2"
+            col : ""
+            title: "VCC (+5 V)"
+            description : "VCC (+5 V)"
         }
     }
 
@@ -103,7 +37,7 @@ Page {
         contentHeight: column.height + pagehead.height + list.height
         PageHeader {
             id : pagehead
-            title: "VGA pin assignments"
+            title: "USB pin assignments"
         }
 
         Column {
@@ -120,7 +54,7 @@ Page {
                     bottomMargin: Theme.paddingSmall / 4
                 }
                 fillMode: Image.PreserveAspectFit
-                source: "../img/vga_male.png"
+                source: "../img/usb_norm.png"
                 width: 250
                 height: 200
 
@@ -133,7 +67,7 @@ Page {
                     bottomMargin: Theme.paddingSmall / 4
                 }
                 fillMode: Image.PreserveAspectFit
-                source: "../img/vga_female.png"
+                source: "../img/usb_mini.png"
                 width: 250
                 height: 200
             }
@@ -179,19 +113,19 @@ Page {
                         font.pixelSize: Theme.fontSizeExtraSmall
                         color: Theme.primaryColor
                     }
-                    Label {
-                        id : co
-                        anchors {
-                            left : pin.right
-                            leftMargin: Theme.paddingLarge*2
-                            rightMargin: Theme.paddingLarge*2
-                            verticalCenter: parent.verticalCenter
-                        }
-                        height: Theme.itemSizeSmall / 1.5
-                        text: model.col
-                        font.pixelSize: Theme.fontSizeExtraSmall
-                        color: Theme.primaryColor
-                    }
+//                    Label {
+//                        id : co
+//                        anchors {
+//                            left : pin.right
+//                            leftMargin: Theme.paddingLarge*2
+//                            rightMargin: Theme.paddingLarge*2
+//                            verticalCenter: parent.verticalCenter
+//                        }
+//                        height: Theme.itemSizeSmall / 1.5
+//                        text: model.col
+//                        font.pixelSize: Theme.fontSizeExtraSmall
+//                        color: Theme.primaryColor
+//                    }
                     Label {
                         id : pin
                         anchors {

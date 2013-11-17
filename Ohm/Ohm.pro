@@ -45,5 +45,7 @@ OTHER_FILES += qml/Ohm.qml \
     qml/pages/vga_pins.qml \
     qml/img/serial.png \
     qml/img/usb_norm.png \
-    qml/img/usb_mini.png
+    qml/img/usb_mini.png \
+    qml/pages/usb_pins.qml \
+    qml/pages/serial_pins.qml
 
