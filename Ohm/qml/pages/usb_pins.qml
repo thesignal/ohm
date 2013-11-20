@@ -85,19 +85,25 @@ Page {
 
             Repeater {
                 id : list
-                model : pagesModel
+                model : pages1Model
                 anchors.bottomMargin: Theme.paddingLarge
 
                 ComboBox {
                     id : combx
-                    height : Theme.itemSizeSmall / 1.5
+                    // height : Theme.itemSizeSmall / 1.5
                     width : parent.width
                     currentIndex: -1
                     menu: ContextMenu {
                         MenuItem {
-                            text : pagesModel.get(index).description
-                            font.pixelSize: Theme.fontSizeExtraSmall / 1.5
-                            color : Theme.primaryColor
+                            Label {
+                                text : pagesModel.get(index).description
+                                font.pixelSize: Theme.fontSizeExtraSmall / 1.5
+                                color : Theme.primaryColor
+                                anchors {
+                                    verticalCenter: parent.verticalCenter
+                                    horizontalCenter: parent.horizontalCenter
+                                }
+                            }
                             onClicked: combx.currentIndex = -1
                         }
                     }
@@ -113,19 +119,19 @@ Page {
                         font.pixelSize: Theme.fontSizeExtraSmall
                         color: Theme.primaryColor
                     }
-//                    Label {
-//                        id : co
-//                        anchors {
-//                            left : pin.right
-//                            leftMargin: Theme.paddingLarge*2
-//                            rightMargin: Theme.paddingLarge*2
-//                            verticalCenter: parent.verticalCenter
-//                        }
-//                        height: Theme.itemSizeSmall / 1.5
-//                        text: model.col
-//                        font.pixelSize: Theme.fontSizeExtraSmall
-//                        color: Theme.primaryColor
-//                    }
+                    //                    Label {
+                    //                        id : co
+                    //                        anchors {
+                    //                            left : pin.right
+                    //                            leftMargin: Theme.paddingLarge*2
+                    //                            rightMargin: Theme.paddingLarge*2
+                    //                            verticalCenter: parent.verticalCenter
+                    //                        }
+                    //                        height: Theme.itemSizeSmall / 1.5
+                    //                        text: model.col
+                    //                        font.pixelSize: Theme.fontSizeExtraSmall
+                    //                        color: Theme.primaryColor
+                    //                    }
                     Label {
                         id : pin
                         anchors {

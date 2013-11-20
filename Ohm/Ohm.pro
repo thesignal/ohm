@@ -23,7 +23,6 @@ OTHER_FILES += qml/Ohm.qml \
     qml/pages/About.qml \
     ../ress/resistor.png \
     ../resistor.png \
-    qml/pages/js/resistorcolor.js \
     qml/pages/smdresistorcalc.qml \
     qml/pages/capacitorcodes.qml \
     qml/img/capacitor.png \
@@ -43,9 +42,12 @@ OTHER_FILES += qml/Ohm.qml \
     qml/img/vga_icon.png \
     qml/img/vga_female.png \
     qml/pages/vga_pins.qml \
-    qml/img/serial.png \
     qml/img/usb_norm.png \
     qml/img/usb_mini.png \
     qml/pages/usb_pins.qml \
-    qml/pages/serial_pins.qml
+    qml/pages/serial_pins.qml \
+    qml/img/usb_icon.png \
+    qml/img/seriell_male.png \
+    qml/img/seriell_icon.png \
+    qml/img/serial_female.png
 

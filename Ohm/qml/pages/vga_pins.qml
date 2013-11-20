@@ -5,7 +5,7 @@ Page {
     id: page
     ListModel {
         id: pagesModel
-
+        
         ListElement {
             pin : "PIN 1"
             col : "RED"
@@ -97,7 +97,7 @@ Page {
             description : "formerly Monitor ID bit 3, I²C clock since DDC2"
         }
     }
-
+    
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height + pagehead.height + list.height
@@ -105,13 +105,13 @@ Page {
             id : pagehead
             title: "VGA pin assignments"
         }
-
+        
         Column {
             id : column
             anchors {
                 top : pagehead.bottom
             }
-
+            
             Image {
                 id : img1
                 anchors {
@@ -123,7 +123,7 @@ Page {
                 source: "../img/vga_male.png"
                 width: 250
                 height: 200
-
+                
             }
             Image {
                 id : img2
@@ -137,7 +137,7 @@ Page {
                 width: 250
                 height: 200
             }
-
+            
             GlassItem {
                 id: effect
                 objectName: "menuitem"
@@ -145,25 +145,33 @@ Page {
                 width: page.width
                 color: Theme.highlightColor
                 cache: false
-
+                
             }
             VerticalScrollDecorator {}
-
+            
             Repeater {
                 id : list
                 model : pagesModel
                 anchors.bottomMargin: Theme.paddingLarge
-
+                
                 ComboBox {
                     id : combx
-                    height : Theme.itemSizeSmall / 1.5
+                    //height : Theme.itemSizeSmall
                     width : parent.width
                     currentIndex: -1
                     menu: ContextMenu {
                         MenuItem {
-                            text : pagesModel.get(index).description
-                            font.pixelSize: Theme.fontSizeExtraSmall / 1.5
-                            color : Theme.primaryColor
+                            Label {
+                                text : pagesModel.get(index).description
+                                font.pixelSize: Theme.fontSizeExtraSmall
+                                color : Theme.primaryColor
+                                anchors {
+                                    verticalCenter: parent.verticalCenter
+                                    horizontalCenter: parent.horizontalCenter
+                                }
+                            }
+                            
+                            height : Theme.itemSizeSmall
                             onClicked: combx.currentIndex = -1
                         }
                     }
@@ -205,9 +213,9 @@ Page {
                         font.pixelSize: Theme.fontSizeExtraSmall
                         color: Theme.primaryColor
                     }
-
+                    
                 }
-
+                
             }
         }
     }

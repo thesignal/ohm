@@ -84,12 +84,24 @@ Page {
                     bottomMargin: Theme.paddingSmall / 4
                 }
                 fillMode: Image.PreserveAspectFit
-                source: "../img/serial.png"
+                source: "../img/seriell_male.png"
                 width: 250
                 height: 200
 
             }
+            Image {
+                id : img2
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                    topMargin: Theme.paddingSmall /4
+                    bottomMargin: Theme.paddingSmall / 4
+                }
+                fillMode: Image.PreserveAspectFit
+                source: "../img/serial_female.png"
+                width: 250
+                height: 200
 
+            }
             GlassItem {
                 id: effect
                 objectName: "menuitem"
@@ -108,14 +120,20 @@ Page {
 
                 ComboBox {
                     id : combx
-                    height : Theme.itemSizeSmall / 1.5
+                    //  height : Theme.itemSizeSmall / 1.5
                     width : parent.width
                     currentIndex: -1
                     menu: ContextMenu {
                         MenuItem {
-                            text : pagesModel.get(index).description
-                            font.pixelSize: Theme.fontSizeExtraSmall / 1.5
-                            color : Theme.primaryColor
+                            Label {
+                                text : pagesModel.get(index).description
+                                font.pixelSize: Theme.fontSizeExtraSmall / 1.5
+                                color : Theme.primaryColor
+                                anchors {
+                                    verticalCenter: parent.verticalCenter
+                                    horizontalCenter: parent.horizontalCenter
+                                }
+                            }
                             onClicked: combx.currentIndex = -1
                         }
                     }

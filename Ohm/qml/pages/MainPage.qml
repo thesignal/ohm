@@ -43,7 +43,7 @@ ApplicationWindow {
                     page: "usb_pins.qml"
                     title: "USB"
                     section: "Connector Pin Assignments"
-                    icon: "../img/usb_norm.png"
+                    icon: "../img/usb_icon.png"
                 }
                 ListElement {
                     page: "vga_pins.qml"
@@ -55,7 +55,7 @@ ApplicationWindow {
                     page: "serial_pins.qml"
                     title: "RS232"
                     section: "Connector Pin Assignments"
-                    icon: "../img/serial.png"
+                    icon: "../img/seriell_icon.png"
                 }
 
             }
