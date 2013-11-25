@@ -18,7 +18,6 @@ OTHER_FILES += qml/Ohm.qml \
     Ohm.desktop \
     qml/pages/MainPage.qml \
     qml/pages/resistorcolor.qml \
-    qml/pages/Settings.qml \
     qml/pages/About.qml \
     ../ress/resistor.png \
     ../resistor.png \

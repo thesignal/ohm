@@ -1,124 +1,110 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
-ApplicationWindow {
-    initialPage:  Page {
-        SilicaFlickable {
-            anchors.fill: parent
 
-            ListModel {
-                id: pagesModel
+Page {
+    SilicaFlickable {
+        anchors.fill: parent
 
-                ListElement {
-                    page: "resistorcolor.qml"
-                    title: "Resistor Colorcode"
-                    section: "Codes"
-                    icon: "../img/resistor_big_4rings.png"
-                }
-                ListElement {
-                    page: "smdresistorcalc.qml"
-                    title: "SMD Resistor Code"
-                    section: "Codes"
-                    icon: "../img/smdresistor.png"
-                }
-                ListElement {
-                    page: "induction.qml"
-                    title: "Inductor Colorcodes"
-                    section: "Codes"
-                    icon: "../img/spiral.png"
-                }
-                ListElement {
-                    page: "capacitorcodes.qml"
-                    title: "Capacitor Codes"
-                    section: "Codes"
-                    icon: "../img/capacitor.png"
-                }
-//                ListElement {
-//                    page: "resistorcolor.qml"
-//                    title: "Ohms Law"
-//                    section: "Equations"
-//                    icon: "ress/resistor.png"
-//                }
-                ListElement {
-                    page: "usb_pins.qml"
-                    title: "USB"
-                    section: "Connector Pin Assignments"
-                    icon: "../img/usb_icon.png"
-                }
-                ListElement {
-                    page: "vga_pins.qml"
-                    title: "VGA"
-                    section: "Connector Pin Assignments"
-                    icon: "../img/vga_icon.png"
-                }
-                ListElement {
-                    page: "serial_pins.qml"
-                    title: "RS232"
-                    section: "Connector Pin Assignments"
-                    icon: "../img/seriell_icon.png"
-                }
+        ListModel {
+            id: pagesModel
 
+            ListElement {
+                page: "resistorcolor.qml"
+                title: "Resistor Colorcode"
+                section: "Codes"
+                icon: "../img/resistor_big_4rings.png"
+            }
+            ListElement {
+                page: "smdresistorcalc.qml"
+                title: "SMD Resistor Code"
+                section: "Codes"
+                icon: "../img/smdresistor.png"
+            }
+            ListElement {
+                page: "induction.qml"
+                title: "Inductor Colorcodes"
+                section: "Codes"
+                icon: "../img/spiral.png"
+            }
+            ListElement {
+                page: "capacitorcodes.qml"
+                title: "Capacitor Codes"
+                section: "Codes"
+                icon: "../img/capacitor.png"
+            }
+            //                ListElement {
+            //                    page: "resistorcolor.qml"
+            //                    title: "Ohms Law"
+            //                    section: "Equations"
+            //                    icon: "ress/resistor.png"
+            //                }
+            ListElement {
+                page: "usb_pins.qml"
+                title: "USB"
+                section: "Connector Pin Assignments"
+                icon: "../img/usb_icon.png"
+            }
+            ListElement {
+                page: "vga_pins.qml"
+                title: "VGA"
+                section: "Connector Pin Assignments"
+                icon: "../img/vga_icon.png"
+            }
+            ListElement {
+                page: "serial_pins.qml"
+                title: "RS232"
+                section: "Connector Pin Assignments"
+                icon: "../img/seriell_icon.png"
+            }
+
+        }
+    }
+
+    SilicaListView {
+        id: listView
+        anchors.fill: parent
+        model: pagesModel
+        header: PageHeader {
+            title: "Ohm"
+        }
+        section {
+            property: "section"
+            delegate: SectionHeader {
+                text: section
             }
         }
 
-        SilicaListView {
-            id: listView
-            anchors.fill: parent
-            model: pagesModel
-            header: PageHeader {
-                title: "Ohm"
-//                Image {
-//                    anchors.right: parent.right
-//                    anchors.rightMargin: 150
-//                    anchors.verticalCenter: parent.verticalCenter
-//                    fillMode: Image.PreserveAspectFit
-//                    source: "../img/logo_ohm.png"
-//                    width: 64
-//                    height: 64
-//                }
+        // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
+        PullDownMenu {
+            MenuItem {
+                text: "About"
+                onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
             }
-            section {
-                property: 'section'
-                delegate: SectionHeader {
-                    text: section
-                }
+        }
+
+        delegate: ListItem {
+            id : listItem
+            Label {
+                anchors.verticalCenter: parent.verticalCenter
+                x: Theme.paddingLarge
+                text: model.title
+                color: highlighted ? Theme.highlightColor : Theme.primaryColor
             }
-
-            // PullDownMenu and PushUpMenu must be declared in SilicaFlickable, SilicaListView or SilicaGridView
-            PullDownMenu {
-                MenuItem {
-                    text: "About"
-                    onClicked: pageStack.push(Qt.resolvedUrl("About.qml"))
-                }
-//                MenuItem {
-//                    text: "Settings"
-//                    onClicked: pageStack.push(Qt.resolvedUrl("Settings.qml"))
-//                }
-
+            Image {
+                anchors.right: parent.right
+                anchors.rightMargin: Theme.paddingLarge
+                anchors.verticalCenter: parent.verticalCenter
+                fillMode: Image.PreserveAspectFit
+                source: model.icon
+                width: 64
+                height: 64
             }
 
-            delegate: ListItem {
-                id : listItem
-                Label {
-                    anchors.verticalCenter: parent.verticalCenter
-                    x: Theme.paddingLarge
-                    text: model.title
-                    color: highlighted ? Theme.highlightColor : Theme.primaryColor
-                }
-                Image {
-                    anchors.right: parent.right
-                    anchors.rightMargin: Theme.paddingLarge
-                    anchors.verticalCenter: parent.verticalCenter
-                    fillMode: Image.PreserveAspectFit
-                    source: model.icon
-                    width: 64
-                    height: 64
-                }
+            onClicked: pageStack.push(Qt.resolvedUrl(model.page))
+        }
 
-                onClicked: pageStack.push(Qt.resolvedUrl(model.page))
-            }
-
-/*            delegate: BackgroundItem {
+        /*            delegate: BackgroundItem {
                 width: listView.width
                 Label {
                     id: firstName
@@ -132,8 +118,8 @@ ApplicationWindow {
             Image { source: model.icon }
 */
 
-            VerticalScrollDecorator {}
-        }
-
+        VerticalScrollDecorator {}
     }
+
 }
+

@@ -26,7 +26,7 @@ Page {
             }
 
             function resolvId(nr) {
-                console.log("resolvid: " + nr);
+                //console.log("resolvid: " + nr);
                 switch(nr) {
                 case 0 : return "#000000";
                 case 1 : return "#854928";
@@ -44,7 +44,7 @@ Page {
                 }
             }
             function setcolor() {
-                console.log("setcolor");
+               // console.log("setcolor");
                 for (var i = 0; i < column.rings; i++) {
                     colorrings.itemAt(i).color = column.resolvId(storevalues.itemAt(i).val);
                 }
@@ -73,8 +73,8 @@ Page {
                 }
                 for (var i = 0; i < column.rings; i++) {
                     colorrings.itemAt(i).x = startpsX + ((shiftX + ringwidth)*i);
-                    console.log("col: " + colorrings.itemAt(i).color);
-                    console.log("x: " + colorrings.itemAt(i).x);
+                    //console.log("col: " + colorrings.itemAt(i).color);
+                    //console.log("x: " + colorrings.itemAt(i).x);
                     colorrings.itemAt(i).y = startpsY;
                 }
 
@@ -126,35 +126,45 @@ Page {
             }
             function updateRow1(row) {
                 for (var i = 0; i < row.model; i++) {
-                    console.log("index is: " + i + " rep.model is: " + row.model)
+                    //console.log("index is: " + i + " rep.model is: " + row.model)
                     if (i === 0) {
-                        row.itemAt(i).color = "transparent";
+                        if (!(row.itemAt(i) === null)) {
+                            row.itemAt(i).color = "transparent";
+                        }
                     }
                     if ((i === 3) && (row.model === 4)) {
-                        row.itemAt(i).color = "transparent";
+                        if (!(row.itemAt(i) === null)) {
+                            row.itemAt(i).color = "transparent";
+                        }
                     }
                 }
             }
             function updateRow4_5(row) {
                 for (var i = 0; i < row.model; i++) {
-                    console.log("index is: " + i + " rep.model is: " + row.model)
+                    //console.log("index is: " + i + " rep.model is: " + row.model)
                     if ((i === 3) && (row.model === 4)) {
-                        row.itemAt(i).color = "transparent";
+                        if (!(row.itemAt(i) === null)) {
+                            row.itemAt(i).color = "transparent";
+                        }
                     }
                 }
             }
             function updateRow9(row) {
                 for (var i = 0; i < row.model; i++) {
-                    console.log("index is: " + i + " rep.model is: " + row.model)
+                    //console.log("index is: " + i + " rep.model is: " + row.model)
                     if ((i === 3) && (row.model === 4)) {
-                        row.itemAt(i).color = "transparent";
+                        if (!(row.itemAt(i) === null)) {
+                            row.itemAt(i).color = "transparent";
+                        }
                     }
                 }
             }
             function updateRow6_7_8_9_10(row) {
                 for (var i = 0; i < row.model; i++) {
                     if ((i == 2) || (i == 3) && (row.model ===4)) {
-                        row.itemAt(i).color = "transparent";
+                        if (!(row.itemAt(i) === null)) {
+                            row.itemAt(i).color = "transparent";
+                        }
                     }
                 }
             }
@@ -162,58 +172,60 @@ Page {
             function updateRow10_11(row) {
                 for (var i = 0; i < row.model; i++) {
                     if ((i === 0 || i === 1 ) && (row.model === 4)) {
-                        row.itemAt(i).color = "transparent";
+                        if (!(row.itemAt(i) === null)) {
+                            row.itemAt(i).color = "transparent";
+                        }
                     }
                 }
             }
             function clearcolumn(column) {
-                console.log("column: " + column)
+                //console.log("column: " + column)
                 if (column <= rep00.model) {
-                    console.log("rep00 :" + rep00.model)
+                    //console.log("rep00 :" + rep00.model)
                     rep00.itemAt(column).dimmed = true;
                 }
                 if (column <= rep10.model) {
-                    console.log("rep10 :" + rep10.model)
+                    //console.log("rep10 :" + rep10.model)
                     rep10.itemAt(column).dimmed = true;
                 }
                 if (column <= rep20.model) {
-                    console.log("rep20 :" + rep20.model)
+                    //console.log("rep20 :" + rep20.model)
                     rep20.itemAt(column).dimmed = true;
                 }
                 if (column <= rep30.model) {
-                    console.log("rep30 :" + rep30.model)
+                    //console.log("rep30 :" + rep30.model)
                     rep30.itemAt(column).dimmed = true;
                 }
                 if (column <= rep40.model) {
-                    console.log("rep40 :" + rep40.model)
+                    //console.log("rep40 :" + rep40.model)
                     rep40.itemAt(column).dimmed = true;
                 }
                 if (column <= rep50.model) {
-                    console.log("rep50 :" + rep50.model)
+                    //console.log("rep50 :" + rep50.model)
                     rep50.itemAt(column).dimmed = true;
                 }
                 if (column <= rep60.model) {
-                    console.log("rep60 :" + rep60.model)
+                    //console.log("rep60 :" + rep60.model)
                     rep60.itemAt(column).dimmed = true;
                 }
                 if (column <= rep70.model) {
-                    console.log("rep70 :" + rep70.model)
+                    //console.log("rep70 :" + rep70.model)
                     rep70.itemAt(column).dimmed = true;
                 }
                 if (column <= rep80.model) {
-                    console.log("rep80 :" + rep80.model)
+                    //console.log("rep80 :" + rep80.model)
                     rep80.itemAt(column).dimmed = true;
                 }
                 if (column <= rep90.model) {
-                    console.log("rep90 :" + rep90.model)
+                    //console.log("rep90 :" + rep90.model)
                     rep90.itemAt(column).dimmed = true;
                 }
                 if (column <= rep100.model) {
-                    console.log("rep100 :" + rep100.model)
+                    //console.log("rep100 :" + rep100.model)
                     rep100.itemAt(column).dimmed = true;
                 }
                 if (column <= rep110.model) {
-                    console.log("rep110 :" + rep110.model)
+                    //console.log("rep110 :" + rep110.model)
                     rep110.itemAt(column).dimmed = true;
                 }
             }
@@ -250,10 +262,10 @@ Page {
                 case "#000000" : i = 0; /* black */
                     break;
                 case "#854928" : i = 1; /* brown */
-                    console.log("brown");
+                   // console.log("brown");
                     break;
                 case "#ff0000" : i = 2;
-                    console.log("red") /* red */
+                   // console.log("red") /* red */
                     break;
                 case "#ff9900" : i = 3; /* orange */
                     break;
@@ -277,7 +289,7 @@ Page {
                     break;
                 }
                 storevalues.itemAt(index).val = i;
-                console.log("index:" + index + " color: " + color + " value: " + storevalues.itemAt(index).val);
+                //console.log("index:" + index + " color: " + color + " value: " + storevalues.itemAt(index).val);
                 column.ohmvalue = "";
                 for (i = 0; i < column.rings; i++) {
                     column.ohmvalue += storevalues.itemAt(i).val;
@@ -318,7 +330,7 @@ Page {
                 var tmp = 0;
                 if (column.rings === 3 || column.rings === 4) {
                     tmp = (storevalues.itemAt(0).val *10) + storevalues.itemAt(1).val;
-                    console.log("tmp: " + tmp)
+                    //console.log("tmp: " + tmp)
                     switch (storevalues.itemAt(2).val) {
                     case 2 : tmp = tmp / 10;
                         break;
@@ -332,7 +344,7 @@ Page {
                 }
                 if (column.rings === 5 || column.rings === 6) {
                     tmp = (storevalues.itemAt(0).val *100) + (storevalues.itemAt(1).val*10) + storevalues.itemAt(2).val;
-                    console.log("tmp: " + tmp)
+                    //console.log("tmp: " + tmp)
                     switch (storevalues.itemAt(3).val) {
                     case 1 : tmp = tmp / 100;
                         break;
@@ -393,7 +405,7 @@ Page {
                             onClicked: column.clickhandler(color,index,rep00)
                         }
                     }
-//                    Component.onCompleted: column.updateRow1(rep00)
+                    //                    Component.onCompleted: column.updateRow1(rep00)
                 }
             }
 
@@ -627,27 +639,27 @@ Page {
                 }
             }
 
-//            Slider {
-//                id: userSlider
-//                width: page.width - Theme.paddingLarge *2
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                stepSize: 1
-//                value: 4
-//                minimumValue: 3
-//                maximumValue: 6
+            //            Slider {
+            //                id: userSlider
+            //                width: page.width - Theme.paddingLarge *2
+            //                anchors.horizontalCenter: parent.horizontalCenter
+            //                stepSize: 1
+            //                value: 4
+            //                minimumValue: 3
+            //                maximumValue: 6
 
-////                onValueChanged: {
-////                    console.log("value is now: " + value)
+            ////                onValueChanged: {
+            ////                    console.log("value is now: " + value)
 
-////                }
-//            }
-//            Label {
-//                text : "Number of Rings: " + column.rings
-//                font.pixelSize: Theme.fontSizeExtraSmall / 1.5
-//                anchors {
-//                    horizontalCenter: parent.horizontalCenter
-//                }
-//            }
+            ////                }
+            //            }
+            //            Label {
+            //                text : "Number of Rings: " + column.rings
+            //                font.pixelSize: Theme.fontSizeExtraSmall / 1.5
+            //                anchors {
+            //                    horizontalCenter: parent.horizontalCenter
+            //                }
+            //            }
 
         }
     }

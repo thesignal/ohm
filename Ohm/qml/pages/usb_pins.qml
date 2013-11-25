@@ -85,7 +85,7 @@ Page {
 
             Repeater {
                 id : list
-                model : pages1Model
+                model : pagesModel
                 anchors.bottomMargin: Theme.paddingLarge
 
                 ComboBox {
