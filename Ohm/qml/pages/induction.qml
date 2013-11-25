@@ -133,21 +133,12 @@ Page {
                     if ((i === 3) && (row.model === 4)) {
                         row.itemAt(i).color = "transparent";
                     }
-                    if ((i === 4) && ((row.model === 5) || (row.model === 6))) {
-                        row.itemAt(i).color = "transparent";
-                    }
                 }
             }
             function updateRow4_5(row) {
                 for (var i = 0; i < row.model; i++) {
                     console.log("index is: " + i + " rep.model is: " + row.model)
                     if ((i === 3) && (row.model === 4)) {
-                        row.itemAt(i).color = "transparent";
-                    }
-                    if ((i === 4) && ((row.model === 5))) {
-                        row.itemAt(i).color = "transparent";
-                    }
-                    if ((i === 4) && ((row.model === 6))) {
                         row.itemAt(i).color = "transparent";
                     }
                 }
@@ -158,32 +149,20 @@ Page {
                     if ((i === 3) && (row.model === 4)) {
                         row.itemAt(i).color = "transparent";
                     }
-                    if ((i === 4) && ((row.model === 5))) {
-                        row.itemAt(i).color = "transparent";
-                    }
-                    if ((i === 5) && ((row.model === 5))) {
-                        row.itemAt(i).color = "transparent";
-                    }
-                    if ((i === 4) || (i === 5) && ((row.model === 6))) {
+                }
+            }
+            function updateRow6_7_8_9_10(row) {
+                for (var i = 0; i < row.model; i++) {
+                    if ((i == 2) || (i == 3) && (row.model ===4)) {
                         row.itemAt(i).color = "transparent";
                     }
                 }
             }
+
             function updateRow10_11(row) {
                 for (var i = 0; i < row.model; i++) {
-                    console.log("index is: " + i + " rep.model is: " + row.model)
-                    if ((i === 0 || i === 1 ) && (row.model === 3)) {
-                        row.itemAt(i).color = "transparent";
-                    }
                     if ((i === 0 || i === 1 ) && (row.model === 4)) {
                         row.itemAt(i).color = "transparent";
-                    }
-                    if ((i === 0 || i === 1 || i === 2) && (row.model === 5)) {
-                        row.itemAt(i).color = "transparent";
-                    }
-                    if ((i === 0 || i === 1 || i === 2 || i === 5) && (row.model === 6)) {
-                        row.itemAt(i).color = "transparent";
-                        console.log("transp: " + row.itemAt(i).color.value)
                     }
                 }
             }
@@ -300,7 +279,7 @@ Page {
                 storevalues.itemAt(index).val = i;
                 console.log("index:" + index + " color: " + color + " value: " + storevalues.itemAt(index).val);
                 column.ohmvalue = "";
-                for (var i = 0; i < column.rings; i++) {
+                for (i = 0; i < column.rings; i++) {
                     column.ohmvalue += storevalues.itemAt(i).val;
                 }
 
@@ -320,35 +299,13 @@ Page {
                 if (column.rings === 3 || column.rings === 4) {
                     val = storevalues.itemAt(2).val;
                     switch (val) {
-                    case 0 : return ""
-                    case 1 : return "0"
-                    case 2 : return "k"
-                    case 3 : return "k"
-                    case 4 : return "0k"
-                    case 5 : return "M"
-                    case 6 : return "M"
-                    case 7 : return "0M"
-                    case 8 : return "00M"
-                    case 9 : return "000M"
-                    case -1 : return ""
-                    case -2 : return ""
-                    default : return ""
-                    }
-                } else if (column.rings === 5 || column.rings === 6) {
-                    val = storevalues.itemAt(3).val;
-                    switch (val) {
-                    case 0 : return ""
-                    case 1 : return "k"
-                    case 2 : return "k"
-                    case 3 : return "k"
-                    case 4 : return "M"
-                    case 5 : return "M"
-                    case 6 : return "M"
-                    case 7 : return "0M"
-                    case 8 : return "00M"
-                    case 9 : return "000M"
-                    case -1 : return ""
-                    case -2 : return ""
+                    case 0 : return "µ"
+                    case 1 : return "0µ"
+                    case 2 : return "m"
+                    case 3 : return "m"
+                    case 4 : return "0m"
+                    case -1 : return "µ"
+                    case -2 : return "0n"
                     default : return ""
                     }
                 } else {
@@ -368,8 +325,6 @@ Page {
                     case 5 : tmp = tmp / 10;
                         break;
                     case -1 : tmp = tmp / 10;
-                        break;
-                    case -2 : tmp = tmp / 100;
                         break;
                     default : break
                     }
@@ -399,61 +354,23 @@ Page {
             }
 
             function getprecision() {
-                if (column.rings === 3 ) {
-                    return "± 20%";
-                }
                 if (column.rings === 4) {
                     switch (storevalues.itemAt(3).val) {
                     case -2 : return "± 10%"
                     case -1 : return "± 5%"
+                    case 0 : return "± 20%"
                     case 1 : return "± 1%"
                     case 2 : return "± 2%"
-                    case 5 : return "± 0.5%"
-                    case 6 : return "± 0.25%"
-                    case 7 : return "± 0.1%"
-                    case 8 : return "± 0.05%"
-                    default : return ""
-                    }
-                }
-                if (column.rings === 5 || column.rings === 6) {
-                    switch (storevalues.itemAt(4).val) {
-                    case -2 : return "± 10%"
-                    case -1 : return "± 5%"
-                    case 1 : return "± 1%"
-                    case 2 : return "± 2%"
-                    case 5 : return "± 0.5%"
-                    case 6 : return "± 0.25%"
-                    case 7 : return "± 0.1%"
-                    case 8 : return "± 0.05%"
+                    case 3 : return "± 3%"
+                    case 4 : return "± 4%"
                     default : return ""
                     }
                 }
             }
-
-            function getTempKoeff() {
-                if (column.rings === 6) {
-                    switch (storevalues.itemAt(5).val) {
-                    case 0 : return "250 ppm/K";
-                    case 1 : return "100 ppm/K";
-                    case 2 : return "50 ppm/K";
-                    case 3 : return "15 ppm/K";
-                    case 4 : return "25 ppm/K";
-                    case 5 : return "20 ppm/K";
-                    case 6 : return "10 ppm/K";
-                    case 7 : return "5 ppm/K";
-                    case 8 : return "1 ppm/K";
-                    default : return "";
-                    }
-
-                } else {
-                    return "";
-                }
-            }
-
 
             function updateval() {
                 column.valuehandler();
-                column.ohmvalue = column.getunitprefix() + " Ω " + column.getprecision() + " " + column.getTempKoeff();
+                column.ohmvalue = column.getunitprefix() + "H " + column.getprecision();
                 ohmlabel.text = column.calcohm + column.ohmvalue;
             }
 
@@ -568,6 +485,8 @@ Page {
                 Repeater { /* repeater green */
                     id : rep50
                     model : (column.rings)
+                    onModelChanged: column.updateRow6_7_8_9_10(rep50)
+                    Component.onCompleted: column.updateRow6_7_8_9_10(rep50)
                     GlassItem {
                         color : "#008000"
                         cache: false
@@ -587,6 +506,8 @@ Page {
                 Repeater { /* repeater, blue */
                     id : rep60
                     model : (column.rings)
+                    onModelChanged: column.updateRow6_7_8_9_10(rep60)
+                    Component.onCompleted: column.updateRow6_7_8_9_10(rep60)
                     GlassItem {
                         color : "#0000ff"
                         cache: false
@@ -606,6 +527,8 @@ Page {
                 Repeater { /* repeater, violet */
                     id :rep70
                     model : (column.rings)
+                    onModelChanged: column.updateRow6_7_8_9_10(rep70)
+                    Component.onCompleted: column.updateRow6_7_8_9_10(rep70)
                     GlassItem {
                         color : "#ee82ee"
                         cache: false
@@ -625,6 +548,8 @@ Page {
                 Repeater { /* repeater, grey */
                     id : rep80
                     model : (column.rings)
+                    onModelChanged: column.updateRow6_7_8_9_10(rep80)
+                    Component.onCompleted: column.updateRow6_7_8_9_10(rep80)
                     GlassItem {
                         color : "#808080"
                         cache: false
@@ -644,8 +569,8 @@ Page {
                 Repeater { /* repeater, white */
                     id : rep90
                     model : (column.rings)
-                    onModelChanged: column.updateRow9(rep90)
-                    Component.onCompleted: column.updateRow9(rep90)
+                    onModelChanged: column.updateRow6_7_8_9_10(rep90)
+                    Component.onCompleted: column.updateRow6_7_8_9_10(rep90)
                     GlassItem {
                         color : "#ffffff"
                         cache: false

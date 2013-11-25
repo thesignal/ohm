@@ -115,7 +115,7 @@ ApplicationWindow {
                     height: 64
                 }
 
-                onClicked: pageStack.push(Qt.resolvedUrl(page))
+                onClicked: pageStack.push(Qt.resolvedUrl(model.page))
             }
 
 /*            delegate: BackgroundItem {

@@ -20,10 +20,10 @@ License:    LICENSE
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  Ohm.yaml
 Requires:   sailfishsilica-qt5
-BuildRequires:  pkgconfig(sailfishapp)
-BuildRequires:  pkgconfig(Qt5Quick)
-BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Qml)
+BuildRequires:  pkgconfig(Qt5Quick)
+BuildRequires:  pkgconfig(sailfishapp)
 BuildRequires:  desktop-file-utils
 
 %description
@@ -62,13 +62,13 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
-%{_bindir}
-%{_datadir}/%{name}/qml
-%{_datadir}/applications/%{name}.desktop
-%{_datadir}/icons/hicolor/90x90/apps/%{name}.png
-/usr/bin
-/usr/share/Ohm
-/usr/share/applications
 /usr/share/icons/hicolor/90x90/apps
+/usr/share/applications
+/usr/share/Ohm
+/usr/bin
+%{_datadir}/icons/hicolor/90x90/apps/%{name}.png
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/%{name}/qml
+%{_bindir}
 # >> files
 # << files

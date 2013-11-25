@@ -13,7 +13,6 @@ CONFIG += sailfishapp
 SOURCES += src/Ohm.cpp
 
 OTHER_FILES += qml/Ohm.qml \
-    qml/cover/CoverPage.qml \
     rpm/Ohm.spec \
     rpm/Ohm.yaml \
     Ohm.desktop \
