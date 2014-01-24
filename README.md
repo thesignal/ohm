@@ -17,3 +17,4 @@ Comming soon:
 - TOH Pins
 - rj45 connectors(crossover A&B)
 - more usb
+- EIA-96 markings SMD resistors
