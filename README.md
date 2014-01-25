@@ -18,3 +18,4 @@ Comming soon:
 - rj45 connectors(crossover A&B)
 - more usb
 - EIA-96 markings SMD resistors
+- reverse smd lookup
