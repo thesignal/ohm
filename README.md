@@ -7,6 +7,10 @@ Features:
 - Capacitor calculator
 - Induction colorrings calculator
 
+Equations for:
+- Ohm's Law
+- LC Resonators
+
 Pin assignments cheat-sheets:
 - USB
 - VGA
