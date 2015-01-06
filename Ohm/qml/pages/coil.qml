@@ -174,7 +174,7 @@ Page {
                 label: "Medium diameter (meter)"
                 width: parent.width
                 placeholderText: "d/m"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             TextField {
@@ -182,7 +182,7 @@ Page {
                 label: "Length (meter)"
                 width: parent.width
                 placeholderText: "l/m"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             TextField {
@@ -190,7 +190,7 @@ Page {
                 label: "Number of windings"
                 width: parent.width
                 placeholderText: "N"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             TextField {
@@ -198,7 +198,7 @@ Page {
                 label: "Inductance"
                 width: parent.width
                 placeholderText: "L/H"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             Button {

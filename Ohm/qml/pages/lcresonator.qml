@@ -146,7 +146,7 @@ Page {
                 label: "Inductance (Henry)"
                 width: parent.width
                 placeholderText: "L/H"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             TextField {
@@ -154,7 +154,7 @@ Page {
                 label: "Capacity (Farad)"
                 width: parent.width
                 placeholderText: "C/F"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             TextField {
@@ -162,7 +162,7 @@ Page {
                 label: "Frequency (Hertz)"
                 width: parent.width
                 placeholderText: "f/Hz"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
                 labelVisible: true
             }
 

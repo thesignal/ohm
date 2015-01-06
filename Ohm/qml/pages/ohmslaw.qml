@@ -146,7 +146,7 @@ Page {
                 label: "Voltage (Volt)"
                 width: parent.width
                 placeholderText: "U/V"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             TextField {
@@ -154,7 +154,7 @@ Page {
                 label: "Current (Ampere)"
                 width: parent.width
                 placeholderText: "I/A"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             TextField {
@@ -162,7 +162,7 @@ Page {
                 label: "Resistance (Ohm)"
                 width: parent.width
                 placeholderText: "R/Ω"
-                inputMethodHints: Qt.ImhPreferNumbers
+                inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
             }
 
             Button {
