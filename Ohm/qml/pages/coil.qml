@@ -154,7 +154,7 @@ Page {
             width: parent.width
             spacing: Theme.paddingLarge
 
-            PageHeader { title: "Coil inductance" }
+            PageHeader { title: "Air-Core Coil" }
 
             Image {
                 id : img1

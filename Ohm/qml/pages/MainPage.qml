@@ -42,7 +42,7 @@ Page {
             }
             ListElement {
                 page: "coil.qml"
-                title: "Coil inductance"
+                title: "Air-Core Coil"
                 section: "Equations"
                 icon: "../img/coil.png"
             }

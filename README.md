@@ -10,6 +10,7 @@ Features:
 Equations for:
 - Ohm's Law
 - LC Resonators
+- Air-core coils
 
 Pin assignments cheat-sheets:
 - USB
