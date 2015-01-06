@@ -41,6 +41,12 @@ Page {
                 icon: "../img/ohmslaw.png"
             }
             ListElement {
+                page: "coil.qml"
+                title: "Coil inductance"
+                section: "Equations"
+                icon: "../img/coil.png"
+            }
+            ListElement {
                 page: "lcresonator.qml"
                 title: "LC Resonator"
                 section: "Equations"
