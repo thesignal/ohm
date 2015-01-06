@@ -33,12 +33,20 @@ Page {
                 section: "Codes"
                 icon: "../img/capacitor.png"
             }
-            //                ListElement {
-            //                    page: "resistorcolor.qml"
-            //                    title: "Ohms Law"
-            //                    section: "Equations"
-            //                    icon: "ress/resistor.png"
-            //                }
+
+            ListElement {
+                page: "ohmslaw.qml"
+                title: "Ohm's Law"
+                section: "Equations"
+                icon: "../img/ohmslaw.png"
+            }
+            ListElement {
+                page: "lcresonator.qml"
+                title: "LC Resonator"
+                section: "Equations"
+                icon: "../img/lcresonator.png"
+            }
+
             ListElement {
                 page: "usb_pins.qml"
                 title: "USB"
