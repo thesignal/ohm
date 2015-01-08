@@ -13,10 +13,11 @@ Name:       harbour-ohm
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    Ohm
-Version:    0.1
+Version:    1.1
 Release:    1
 Group:      Qt/Qt
 License:    LICENSE
+URL:        https://github.com/thesignal/ohm
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-ohm.yaml
 Requires:   sailfishsilica-qt5
