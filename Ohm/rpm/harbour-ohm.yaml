@@ -1,9 +1,10 @@
 Name: harbour-ohm
 Summary: Ohm
-Version: 0.1
+Version: 1.1
 Release: 1
 Group: Qt/Qt
 License: LICENSE
+URL: https://github.com/thesignal/ohm
 Sources:
 - '%{name}-%{version}.tar.bz2'
 Description: |

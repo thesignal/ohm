@@ -3,5 +3,5 @@ Type=Application
 X-Nemo-Application-Type=silica-qt5
 Name=Ohm
 Icon=/usr/share/icons/hicolor/86x86/apps/harbour-ohm.png
-Exec=Ohm
+Exec=harbour-ohm
 

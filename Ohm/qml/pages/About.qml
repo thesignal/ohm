@@ -18,13 +18,18 @@ Page {
                 title: "About"
             }
             SectionHeader {
-                text: "Author"
+                text: "Authors"
             }
 
             Label {
                 text: "Philipp Wagner"
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+            Label {
+                text: "Thomas Kolb"
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+
             SectionHeader {
                 text: "Artwork"
             }
