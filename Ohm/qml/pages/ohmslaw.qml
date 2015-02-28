@@ -1,69 +1,12 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+import "lib/numbers.js" as Numbers
+
 Page {
     id: page
 
     property int mode: 0;
-
-    function parseNumber(str) {
-        var n = parseFloat(str);
-        var factor = 1;
-
-        switch(str[str.length-1]) {
-            // positive prefixes
-            case 'k': factor = 1e3;  break;
-            case 'M': factor = 1e6;  break;
-            case 'G': factor = 1e9;  break;
-            case 'T': factor = 1e12; break;
-            case 'P': factor = 1e15; break;
-            case 'E': factor = 1e18; break;
-            case 'Z': factor = 1e21; break;
-            case 'Y': factor = 1e24; break;
-
-            // negative prefixes
-            case 'm': factor = 1e-3;  break;
-            case 'u': factor = 1e-6;  break;
-            case 'n': factor = 1e-9;  break;
-            case 'p': factor = 1e-12; break;
-            case 'f': factor = 1e-15; break;
-            case 'a': factor = 1e-18; break;
-            case 'z': factor = 1e-21; break;
-            case 'y': factor = 1e-24; break;
-        }
-
-        return n * factor;
-    }
-
-    function formatNumber(f) {
-        var n = 0;
-        var prePos = "kMGTPEZY";
-        var preNeg = "munpfazy";
-
-        var prefix = "";
-
-        if(Math.abs(f) > 1) {
-            while(Math.abs(f) > 1000) {
-                f /= 1000;
-                n++;
-            }
-
-            if(n != 0) {
-                prefix = prePos[n-1];
-            }
-        } else {
-            while(Math.abs(f) < 0.001) {
-                f *= 1000;
-                n++;
-            }
-
-            if(n != 0) {
-                prefix = preNeg[n-1];
-            }
-        }
-
-        return f.toFixed(3) + prefix;
-    }
 
     function calculate() {
         var u = voltage.text;
@@ -84,32 +27,32 @@ Page {
 
         switch(mode) {
         case 0:
-            var fi = parseNumber(i);
-            var fr = parseNumber(r);
+            var fi = Numbers.parse(i);
+            var fr = Numbers.parse(r);
 
             var fu = fi * fr;
 
-            voltage.text = formatNumber(fu);
+            voltage.text = Numbers.format(fu);
             voltage.color = Theme.highlightColor;
             break;
 
         case 1:
-            var fu = parseNumber(u);
-            var fr = parseNumber(r);
+            var fu = Numbers.parse(u);
+            var fr = Numbers.parse(r);
 
             var fi = fu / fr;
 
-            current.text = formatNumber(fi);
+            current.text = Numbers.format(fi);
             current.color = Theme.highlightColor;
             break;
 
         case 2:
-            var fi = parseNumber(i);
-            var fu = parseNumber(u);
+            var fi = Numbers.parse(i);
+            var fu = Numbers.parse(u);
 
             var fr = fu / fi;
 
-            resistance.text = formatNumber(fr);
+            resistance.text = Numbers.format(fr);
             resistance.color = Theme.highlightColor;
             break;
         }
