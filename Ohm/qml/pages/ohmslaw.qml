@@ -90,6 +90,7 @@ Page {
                 width: parent.width
                 placeholderText: "U/V"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
@@ -98,6 +99,7 @@ Page {
                 width: parent.width
                 placeholderText: "I/A"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
@@ -106,6 +108,7 @@ Page {
                 width: parent.width
                 placeholderText: "R/Ω"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             Button {

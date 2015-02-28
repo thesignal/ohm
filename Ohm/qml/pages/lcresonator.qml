@@ -90,6 +90,7 @@ Page {
                 width: parent.width
                 placeholderText: "L/H"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
@@ -98,6 +99,7 @@ Page {
                 width: parent.width
                 placeholderText: "C/F"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
@@ -106,7 +108,7 @@ Page {
                 width: parent.width
                 placeholderText: "f/Hz"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
-                labelVisible: true
+                EnterKey.onClicked: calculate()
             }
 
             Button {

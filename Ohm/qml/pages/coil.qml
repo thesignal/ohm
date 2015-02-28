@@ -118,6 +118,7 @@ Page {
                 width: parent.width
                 placeholderText: "d/m"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
@@ -126,6 +127,7 @@ Page {
                 width: parent.width
                 placeholderText: "l/m"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
@@ -134,14 +136,16 @@ Page {
                 width: parent.width
                 placeholderText: "N"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
                 id: inductance
-                label: "Inductance"
+                label: "Inductance (Henry)"
                 width: parent.width
                 placeholderText: "L/H"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             Button {
