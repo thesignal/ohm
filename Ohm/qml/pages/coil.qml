@@ -1,69 +1,12 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+import "lib/numbers.js" as Numbers
+
 Page {
     id: page
 
     property int mode: 0;
-
-    function parseNumber(str) {
-        var n = parseFloat(str);
-        var factor = 1;
-
-        switch(str[str.length-1]) {
-            // positive prefixes
-            case 'k': factor = 1e3;  break;
-            case 'M': factor = 1e6;  break;
-            case 'G': factor = 1e9;  break;
-            case 'T': factor = 1e12; break;
-            case 'P': factor = 1e15; break;
-            case 'E': factor = 1e18; break;
-            case 'Z': factor = 1e21; break;
-            case 'Y': factor = 1e24; break;
-
-            // negative prefixes
-            case 'm': factor = 1e-3;  break;
-            case 'u': factor = 1e-6;  break;
-            case 'n': factor = 1e-9;  break;
-            case 'p': factor = 1e-12; break;
-            case 'f': factor = 1e-15; break;
-            case 'a': factor = 1e-18; break;
-            case 'z': factor = 1e-21; break;
-            case 'y': factor = 1e-24; break;
-        }
-
-        return n * factor;
-    }
-
-    function formatNumber(f) {
-        var n = 0;
-        var prePos = "kMGTPEZY";
-        var preNeg = "munpfazy";
-
-        var prefix = "";
-
-        if(Math.abs(f) > 1) {
-            while(Math.abs(f) > 1000) {
-                f /= 1000;
-                n++;
-            }
-
-            if(n != 0) {
-                prefix = prePos[n-1];
-            }
-        } else {
-            while(Math.abs(f) < 0.001) {
-                f *= 1000;
-                n++;
-            }
-
-            if(n != 0) {
-                prefix = preNeg[n-1];
-            }
-        }
-
-        return f.toFixed(3) + prefix;
-    }
 
     function calculate() {
         var d = diameter.text;
@@ -94,50 +37,50 @@ Page {
 
         switch(mode) {
         case 0: // calculate d
-            var fn = parseNumber(n);
-            var fh = parseNumber(h);
-            var fl = parseNumber(l);
+            var fn = Numbers.parse(n);
+            var fh = Numbers.parse(h);
+            var fl = Numbers.parse(l);
 
             var A = fl * fh / (u0 * Math.pow(fn, 2));
             var fd = Math.sqrt(A / (Math.PI/4));
 
-            diameter.text = formatNumber(fd);
+            diameter.text = Numbers.format(fd);
             diameter.color = Theme.highlightColor;
             break;
 
         case 1: // calculate h
-            var fn = parseNumber(n);
-            var fl = parseNumber(l);
-            var fd = parseNumber(d);
+            var fn = Numbers.parse(n);
+            var fl = Numbers.parse(l);
+            var fd = Numbers.parse(d);
 
             var A = Math.PI/4 * Math.pow(fd, 2);
             var fh = u0 * Math.pow(fn, 2) * A / fl;
 
-            length.text = formatNumber(fh);
+            length.text = Numbers.format(fh);
             length.color = Theme.highlightColor;
             break;
 
         case 2: // calculate n
-            var fl = parseNumber(l);
-            var fd = parseNumber(d);
-            var fh = parseNumber(h);
+            var fl = Numbers.parse(l);
+            var fd = Numbers.parse(d);
+            var fh = Numbers.parse(h);
 
             var A = Math.PI/4 * Math.pow(fd, 2);
             var fn = Math.sqrt(fl * fh / (u0 * A));
 
-            windings.text = formatNumber(fn);
+            windings.text = Numbers.format(fn);
             windings.color = Theme.highlightColor;
             break;
 
         case 3: // calculate l
-            var fd = parseNumber(d);
-            var fn = parseNumber(n);
-            var fh = parseNumber(h);
+            var fd = Numbers.parse(d);
+            var fn = Numbers.parse(n);
+            var fh = Numbers.parse(h);
 
             var A = Math.PI/4 * Math.pow(fd, 2);
             var fl = u0 * Math.pow(fn, 2) * A / fh;
 
-            inductance.text = formatNumber(fl);
+            inductance.text = Numbers.format(fl);
             inductance.color = Theme.highlightColor;
             break;
         }
@@ -175,6 +118,7 @@ Page {
                 width: parent.width
                 placeholderText: "d/m"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
@@ -183,6 +127,7 @@ Page {
                 width: parent.width
                 placeholderText: "l/m"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
@@ -191,14 +136,16 @@ Page {
                 width: parent.width
                 placeholderText: "N"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             TextField {
                 id: inductance
-                label: "Inductance"
+                label: "Inductance (Henry)"
                 width: parent.width
                 placeholderText: "L/H"
                 inputMethodHints: Qt.ImhPreferNumbers | Qt.ImhNoPredictiveText
+                EnterKey.onClicked: calculate()
             }
 
             Button {
